@@ -24,8 +24,6 @@ Route::get('/admin', function () {
 });
 
 
-
-
 Route::get('/categories', [CategorysController::class, 'index'])->name('categories.index');
 Route::get('/create', [CategorysController::class, 'create'])->name('categories.create');
 Route::put('/store', [CategorysController::class, 'store'])->name('categories.store');

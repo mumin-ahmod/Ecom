@@ -12,7 +12,12 @@ class CategorysController extends Controller
      */
     public function index()
     {
-        return view('backend.categories.index');
+        $categories =  Category::all();
+
+        
+
+        return  view('backend.categories.index', compact('categories'));
+   
     }
 
     /**
@@ -47,7 +52,7 @@ class CategorysController extends Controller
      */
     public function show(Category $category)
     {
-        //
+     
     }
 
     /**

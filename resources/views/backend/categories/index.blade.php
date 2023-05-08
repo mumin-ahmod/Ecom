@@ -7,11 +7,12 @@
 
 
     @include('backend.layouts.partials.errors')
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <h1 class="h3 mb-2 text-gray-800">All Categories</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -31,12 +32,28 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>action</td>
+
+                                    @foreach($categories as $category)
+
+                                    <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$category->cat_name}}</td>
+                                            <td>{{$category->description}}</td>
+                                            <td class='row'>
+
+
+                                            <button class="btn btn-danger btn-circle" type='submit'>
+                                                    <i class="fas fa-trash"></i>
+                                             </button>
+
+                                             <button class="btn btn-success btn-circle" type='submit'>
+                                             <i class="fas fa-pen"></i>
+                                             </button>
+                                            </td>
                                         </tr>
+
+                                    @endforeach
+
 
                                     </tbody>
                                 </table>
