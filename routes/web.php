@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CategorysController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +23,9 @@ Route::get('/admin', function () {
     return view('backend.dashboard');
 });
 
+
+
+
+Route::get('/categories', [CategorysController::class, 'index'])->name('categories.index');
+Route::get('/create', [CategorysController::class, 'create'])->name('categories.create');
+Route::put('/store', [CategorysController::class, 'store'])->name('categories.store');
