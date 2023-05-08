@@ -32,10 +32,17 @@
                                             <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Name" name="cat_name">
+
+                                                @error('cat_name')
+                                                <p class='text-danger'>{{$message}}</p>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Discription" name="description">
+                                                @error('description')
+                                                <p class='text-danger'>{{$message}}</p>
+                                                @enderror
                                         </div>
                                        
                                         <button class="btn btn-primary btn-user btn-block" type='submit'>
