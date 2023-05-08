@@ -37,7 +37,7 @@
             @include('backend.layouts.partials.navbar')
                 <!-- End of Topbar -->
 
-               @yield('contant')
+               @yield('content')
             <!-- End of Main Content -->
 
             <!-- Footer -->
