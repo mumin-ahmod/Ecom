@@ -51,7 +51,7 @@ class CategorysController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show()
     {
      
     }
@@ -59,17 +59,44 @@ class CategorysController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('backend.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+     
+        try {
+
+            $data = $request->except("_token");
+
+            Category::where('id', $id)->update($data);
+
+            return redirect()->route('categories.index')->withMessage('Categories Updated Successfully.');
+        } catch (\Throwable $e) {
+           return redirect()->back()->withError($e->getMessage());
+        }
+    }
+
+// soft delete
+    public function delete(Request $request, $id)
+    {
+     
+        try {
+
+            $data = $request->except("_token");
+
+            Category::where('id', $id)->delete($data);
+
+            return redirect()->route('categories.index')->withMessage('Categories Deleted!');
+        } catch (\Throwable $e) {
+           return redirect()->back()->withError($e->getMessage());
+        }
     }
 
     /**

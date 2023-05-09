@@ -4,7 +4,7 @@
 
 @if(session('message'))
 
-<h3>{{session('message')}}</h3>
+<h3 class='text-center'>{{session('message')}}</h3>
 
 @endif
 
@@ -12,6 +12,6 @@
 
 @if(session('error'))
 
-<h3>{{session('error')}}</h3>
+<h3 class='text-center'>{{session('error')}}</h3>
 
 @endif

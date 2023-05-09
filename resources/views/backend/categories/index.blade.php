@@ -6,7 +6,7 @@
 @section('content')
 
 
-    @include('backend.layouts.partials.errors')
+@include('backend.layouts.partials.errors')
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -38,21 +38,28 @@
                                     <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$category->cat_name}}</td>
-                                            <td>{{$category->description}}</td>
-                                            <td class='row'>
+                                            <td class='col-6 '>{{$category->description}}</td>
+                                            <td class='col-2'>
 
+                                            <div class='row'>
+                                           <a class='col' href="{{route('categories.edit', $category->id)}}"> <button class="btn btn-info btn-circle">
+                                                    <i class="fas fa-pen"></i>
+                                             </button></a>
 
-                                            <button class="btn btn-danger btn-circle" type='submit'>
-                                                    <i class="fas fa-trash"></i>
+                                            <form action="{{route('categories.delete', $category->id)}}" method="post" class='col'>
+                                             @csrf
+                                             <button class="btn btn-danger btn-circle" type='submit'>
+                                         
+                                             <i class="fas fa-trash"></i>
                                              </button>
+                                             </form>
+                                             </div>
 
-                                             <button class="btn btn-success btn-circle" type='submit'>
-                                             <i class="fas fa-pen"></i>
-                                             </button>
                                             </td>
                                         </tr>
 
                                     @endforeach
+
 
 
                                     </tbody>

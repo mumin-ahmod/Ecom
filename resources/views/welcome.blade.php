@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<body>
-    
-<h3>Welcome to my Laravel Site</h3>
+@extends('backend.layouts.master')
 
 
-
-</body>
-</html>
+@section('content')
+Home Pagee
+@endsection()
